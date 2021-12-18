@@ -38,6 +38,6 @@ Run it as dockerless container, keep your images actual, reduce complexity.
 ## Some pitfalls
 * Pound has to be configured *not* in Daemon mode (see pound.cfg DAEMON 0). If it is configured as a deamon the docker container will start, pound is started and then (because it is a background process) docker receives an exit 0, which means the application is down and Docker stops the container. The process has to be a foreground process!
 * Pound can be configured to use a Web Certificate to communicate with HTTPs to the outside world and internally without encryption.
-The certificate has to be in PEM format and has to be both the certificate itself (eg. domain.crt) and the key file (e.g. domain.key). Concatenate both with _cat domain.crt domain.key > domain.pem_ in linux shell (see also the manpage, section Cert)
+The certificate has to be in PEM format and has to included the certificate itself (e.g. domain.crt) and the key file (e.g. domain.key). Concatenate both with _cat domain.crt domain.key > domain.pem_ in linux shell (see also the manpage, section Cert). The final PEM file should have the name of your domain, e.g. _domain.example.org_ then name it as _domain.example.org.pem_.
 * Using docker's own DNS resolver, pound has to be in it's own network (not the default _bridge_ network) with other services (see https://docs.docker.com/engine/reference/commandline/network_create/)
 * Check the Path to the pound files and the mapping inside _pound.cfg_
