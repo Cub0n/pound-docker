@@ -18,6 +18,10 @@ More can be found at:
 * https://manpages.ubuntu.com/manpages/latest/en/man8/pound.8.html
 * https://www.cyberciti.biz/faq/linux-http-https-reverse-proxy-load-balancer/
 
+## Build
+Change to directory where the Dockerfile is located and execute: _docker build -t pound:latest_.
+You can choose the tag (-t) on your own. The builded image is automatically added to your local docker image repository.
+
 ## Run
 docker run -d -p 80:80 -p 443:443 -p 4443:4443 \
         --restart=unless-stopped \
